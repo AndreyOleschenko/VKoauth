@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Login Page</h1>
+    <div>Вы хотите выйти?</div>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выход</button>
+    </form>
+    
+    <!-- DEBUG: show CSRF token (remove in production) -->
+    <div>CSRF token (debug): {{ debug_csrf }}</div>
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load socialaccount %}
+
+{% block content %}
+    <h1>Login Page</h1>
+    <div>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div>
+        <a href="{% provider_login_url 'vk' %}">Login with VK(django-allauth)</a>
+    </div>
+    <div>
+          <a href="{% provider_login_url 'yandex' %}">Login with Yandex(django-allauth)</a>  
+    </div>
+        <div>if you don't have an account you can <a href="{% url 'signin' %}">signin</a></div>
+{% endblock content %}
