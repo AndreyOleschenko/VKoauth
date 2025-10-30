@@ -1,21 +1,18 @@
-name: Pylint Check
+name: Lint with pylint
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
@@ -23,13 +20,8 @@ jobs:
           pip install -r requirements.txt
           pip install pylint==3.2.7 astroid==3.2.4 pylint-django
 
-      - name: Run Pylint
-        run: |
-          echo "🧹 Проверка стиля кода..."
-          if [ -f .pylintrc ]; then
-            pylint $(git ls-files '*.py')
-          else
-            pylint --exit-zero $(git ls-files '*.py')
-          fi
+      - name: Run pylint
+        run: pylint --rcfile=.pylintrc VKoauth
+
 
 
