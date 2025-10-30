@@ -3,7 +3,6 @@ Django settings for VKoauth project.
 """
 
 from pathlib import Path
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +30,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.vk',
     'allauth.socialaccount.providers.yandex',
-    
 ]
 
 MIDDLEWARE = [

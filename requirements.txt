@@ -6,4 +6,5 @@ django-allauth==0.63.3
 requests==2.31.0
 oauthlib==3.2.2
 pylint==3.2.7
+pylint-django
 
